@@ -8,3 +8,13 @@ Descubra a senha do hash gerado pelo sistema:
 
 Dica: utilize a wordlist do john (password.lst)
 Dica2: Crie um script para ler a wordlist e aplicar o algoritmo acima.
+
+
+
+Para utilização
+
+chmod +x hashscript.sh
+./hashscript.sh 806825f0827b628e81620f0d83922fb2c52c7136
+
+
+
