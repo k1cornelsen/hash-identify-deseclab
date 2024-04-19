@@ -33,6 +33,6 @@ if [ -f "john.txt" ]; then
     done < "john.txt"
     echo "Fim do arquivo. Hash não encontrado."
 else
-    echo "O arquivo /usr/share/john/password.lst não existe."
+    echo "O arquivo john.txt não existe."
 fi
 
