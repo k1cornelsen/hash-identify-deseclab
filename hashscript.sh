@@ -15,13 +15,22 @@ if [ -f "john.txt" ]; then
     while IFS= read -r palavra; do
         # Exibe a palavra sendo testada
         echo "Testando palavra: $palavra"
-        resultado=$(echo -n "$palavra" | md5sum | base64 | sha1sum)
-        echo "$resultado" >> saida.txt
-        if [ "$resultado" == "$hash_usuario  -" ]; then
+        
+        # Calcula o hash MD5 da palavra
+        md5_hash=$(echo -n "$palavra" | md5sum | awk '{print $1}')
+        
+        # Converte o hash MD5 para base64
+        base64_hash=$(echo -n "$md5_hash" | base64)
+        
+        # Calcula o hash SHA1 do hash base64
+        sha1_hash=$(echo -n "$base64_hash" | sha1sum | awk '{print $1}')
+        
+        # Compara o hash SHA1 calculado com o hash fornecido pelo usuário
+        if [ "$sha1_hash" == "$hash_usuario" ]; then
             echo "Hash encontrado para a palavra: $palavra"
             exit 0 # Termina o script após encontrar a correspondência
         fi
-    done < "/usr/share/john/password.lst"
+    done < "john.txt"
     echo "Fim do arquivo. Hash não encontrado."
 else
     echo "O arquivo /usr/share/john/password.lst não existe."
