@@ -1,6 +1,6 @@
 # hash-identify-deseclab
 Script em Bash para execução do laboratório da Semana 08 - Hashes e Senhas Linux do curso Novo Pentest Profissional
-
+----------------------------------------------------------------------------------------------------------------------------
 Durante um pentest encontramos um github com o código que a aplicação usava para gerar o hash do sistema. O código fazia um md5 na string, em seguida um base64, em seguida um sha1.
 
 Descubra a senha do hash gerado pelo sistema:
